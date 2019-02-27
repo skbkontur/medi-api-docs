@@ -9,7 +9,7 @@ GET /.well-known/openid-configuration HTTP/1.1
 Host: identity.testkontur.ru
 ```
 В ответ на данный запрос возвращается документ, содержащий, в частности `token_endpoint`.
-```json
+```json5
 {
     "issuer": "https://identity.testkontur.ru",
     "jwks_uri": "https://identity.testkontur.ru/.well-known/openid-configuration/jwks",
@@ -30,7 +30,7 @@ grant_type=client_credentials&scope=medi_api
 ```
 В теле запроса необходимо передать параметры `grant_type=client_credentials` и `scope=medi_api`. Авторизационный заголовок - закодированная в Base64 строка вида "`clientId`:`clientSecret`".
 В ответ вернется аутентификационный токен:
-```json
+```json5
 {
     "access_token": "1cb398cc2207ae709337ccfdacbb96ffd2ab2c759cb21a3de716d11d42d9383e",
     "expires_in": 86400,
