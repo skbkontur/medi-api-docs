@@ -55,7 +55,7 @@ paths:
         401:
           description: "Не авторизован"
         403:
-          description: "Нет к указанной организации, либо ни к одной другой"
+          description: "Нет доступа к указанной организации, либо нет доступа ни к одной организации"
         404:
           description: "Организация с указанным MediId не существует"
   /events:
@@ -256,6 +256,7 @@ definitions:
     properties:
       mediId:
         type: string
+        description: "mediId отправителя"
       message:
         type: string
         format: byte
@@ -306,4 +307,44 @@ definitions:
       deliveryNotificationWaitTime:
         type: string
         format: date-time
+  EventType:
+        type: string
+        enum:
+        - "NewOutboxMessage"
+        - "NewInboxMessage"
+        - "MessageDelivered"
+        - "MessageUndelivered"
+        - "ProcessingTimesReport"
+    
+  ErrorResponse:
+    type: object
+    properties:
+      error:
+        $ref: "#/definitions/ApiError"
+      innerErrors:
+        type: array
+        items:
+          $ref: "#/definitions/ApiError"
+    
+  ApiError:
+    type: object
+    properties:
+      errorCode:
+        $ref: "#/definitions/ApiErrorCode"
+      message:
+        type: string
+    
+  ApiErrorCode:
+    type: string
+    enum: [HasNoAccessToParty,
+        PartyDoesNotExist,
+        ClientHasNoAccessibleParties,
+
+        MediIdDoesNotExist,
+        HasNoAccessToMediId,
+        MessageNotFound,
+
+        ValidationErrorCode,
+        BadEventsCount,
+        InvalidLastEventPointer]
 ```
