@@ -26,7 +26,7 @@ Host: identity.testkontur.ru
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic bWVkaV90ZXN0X2NsaWVudDpiMjlkMGQ5ZS04NzJjLTRlYTUtYTkyYS03MWIzYWJkZWEwOTE=
 
-grant_type=client_credentialsscope=medi_api
+grant_type=client_credentials&scope=medi_api
 ```
 В теле запроса необходимо передать параметры `grant_type=client_credentials` и `scope=medi_api`. Авторизационный заголовок - закодированная в Base64 строка вида "`clientId`:`clientSecret`".
 В ответ вернется аутентификационный токен:
