@@ -3,5 +3,5 @@
   * https://api.testkontur.ru/medi/V2
   * https://medi-api.testkontur.ru/V2 (ГОСТ-шифрование)
 * Описание в формате OpenAPI specification доступно по ссылке 
-  * https://api.testkontur.ru/medi/static/api-v2-docs.yaml
-  * https://medi-api.testkontur.ru/static/api-v2-docs.yaml (ГОСТ-шифрование)
+  * https://api.testkontur.ru/medi/swagger/V2/swagger.json
+  * https://medi-api.testkontur.ru/swagger/V2/swagger.json (ГОСТ-шифрование)
